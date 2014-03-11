@@ -1,15 +1,19 @@
 package APrioriMiner;
 
-import java.io.Serializable;
 import java.util.HashSet;
 
-public class ItemSet implements Serializable {
+public class ItemSet {
 
-	private static final long serialVersionUID = 1L;
-
+	/***************
+	 * VARIABLES *
+	 ***************/
 	public HashSet<Item> items;
 	public int count;
 
+	
+	/******************
+	 * CONSTRUCTORS *
+	 ******************/
 	public ItemSet(HashSet<Item> items) {
 		count = 1;
 		this.items = items;
@@ -21,11 +25,16 @@ public class ItemSet implements Serializable {
 		count = 1;
 	}
 
+	@SuppressWarnings("unchecked")
 	public ItemSet(ItemSet itemSetOne, ItemSet itemSetTwo) {
 		items = (HashSet<Item>) itemSetOne.getItems().clone();
 		items.addAll((HashSet<Item>) itemSetTwo.getItems().clone());
 		count = 0;
 	}
+	
+	/*************
+	 * METHODS *
+	 *************/
 
 	public void increment(int value) {
 		this.count += value;
@@ -72,7 +81,7 @@ public class ItemSet implements Serializable {
 			}
 		}
 		return duplicateItems;
-	}
+	} // end of duplicateItems
 
 	public String toString() {
 		return count + ": " + items.toString();
@@ -94,11 +103,11 @@ public class ItemSet implements Serializable {
 		}
 		output = output.substring(0, output.length() - 1) + "}";
 		return output;
-	}
+	} // end of outputTransactions
 
 	@Override
 	public boolean equals(Object o) {
 		return ((ItemSet) o).hashCode() == items.hashCode();
 	}
 
-}
+} // end of ItemSet

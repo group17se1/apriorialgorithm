@@ -1,16 +1,22 @@
 package APrioriMiner;
 
-import java.io.Serializable;
-
-public class Item implements Serializable {
+public class Item {
 	
-	private static final long serialVersionUID = 1L;
-	
+	/***************
+	 * VARIABLES *
+	 ***************/
 	private String name;
-
+	
+	/******************
+	 * CONSTRUCTORS *
+	 ******************/
 	public Item(String name) {
 		this.name = name;
 	}
+	
+	/*************
+	 * METHODS *
+	 *************/
 
 	public String getName() {
 		return name;
