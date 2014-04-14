@@ -130,8 +130,8 @@ public class GUI extends JFrame implements ActionListener{
 		
 	}
 	
-	public void finished(double time) {
-		JOptionPane.showMessageDialog(null, time + " msec", "Generator Time", JOptionPane.INFORMATION_MESSAGE);
+	public void display(APrioriAlgorithm apa, double time){
+		JOptionPane.showMessageDialog(null, "Large Item Sets: " + apa.itemSubsets.size() + "\n" + apa.itemSubsets + "\n" + "Association Rules: " + apa.associationRules.size() + "\n" + apa.associationRules + "\nTime: " + time + " msec", "Result", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	@Override
@@ -197,15 +197,9 @@ public class GUI extends JFrame implements ActionListener{
 				APrioriAlgorithm generator = new APrioriAlgorithm(msl, mcl, transactionSet);
 				timer.stopTimer();
 				time = timer.getTotal();
-				Parser parser = new Parser(transactionSet);
-				DataAccessObject dao = new DataAccessObject();
-				dao.uploadSettings(generator.minSupportLevel, generator.minConfidenceLevel);
-				dao.uploadTransaction("PaulMart", parser.getStartDate(), parser.getEndDate(), generator.transactions);
-				dao.uploadAssociations(parser.getStartDate(), generator.associationRules);
-				dao.getSettings();
 				//stop timer and print out the elapsed time
 				System.out.println("Elapsed Time: " + time + " msec");
-				this.finished(time);
+				this.display(generator, time);
 			} else if(!minS) {
 				JOptionPane.showMessageDialog(null, "Please enter a valid support level!", "Invalid", JOptionPane.ERROR_MESSAGE);
 			} else if(!minC) {

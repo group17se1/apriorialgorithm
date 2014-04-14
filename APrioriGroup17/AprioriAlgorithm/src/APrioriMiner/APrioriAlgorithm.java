@@ -26,6 +26,11 @@ public class APrioriAlgorithm {
 		this.itemSubsets = new HashSet<ItemSet>();
 		this.itemSets = parser.getUniqueItems();
 		generateRules();
+		DataAccessObject dao = new DataAccessObject();
+		dao.uploadSettings(minSupportLevel, minConfidenceLevel);
+		dao.uploadTransaction("PaulMart", parser.getStartDate(), parser.getEndDate(), transactions);
+		dao.uploadAssociations(parser.getStartDate(), associationRules);
+		dao.getSettings();
 		
 	} // end of hard code constructor
 
