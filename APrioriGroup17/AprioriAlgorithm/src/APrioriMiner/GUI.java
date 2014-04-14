@@ -193,7 +193,6 @@ public class GUI extends JFrame implements ActionListener{
 			timer.startTimer();
 			if(minS && minC && file) {
 				//----------------------------------------------------starting generator -------------------------------------------
-				@SuppressWarnings("unused")
 				APrioriAlgorithm generator = new APrioriAlgorithm(msl, mcl, transactionSet);
 				timer.stopTimer();
 				time = timer.getTotal();
