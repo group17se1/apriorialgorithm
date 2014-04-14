@@ -1,0 +1,32 @@
+package APrioriMiner;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class APrioriTests {
+
+	@Test
+	public void testAssociationRule() {
+		String transactionSet = "U:/NOVOALG/cs355_assignments/APrioriGroup17/AprioriAlgorithm/src/test.txt";
+		APrioriAlgorithm generator = new APrioriAlgorithm(0.012, 0.6, transactionSet);
+		generator.generateRules();
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testTransaction() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testItemSet(){
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void tesDataAccessObject(){
+		fail("Not yet implemented");
+	}
+
+}

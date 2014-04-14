@@ -1,0 +1,78 @@
+package APrioriMiner;
+
+import static org.junit.Assert.*;
+
+import java.util.HashSet;
+
+import org.junit.Test;
+
+public class APrioriTests {
+	
+	double confidenceLevel = 0.5;
+	Item item = new Item("beer");
+	Item item2 = new Item("dipper");
+	
+	@Test
+	public void testAssociationRule() {
+		
+		ItemSet set = new ItemSet(item);
+		ItemSet consequentIn = new ItemSet(item2);
+		AssociationRule ar = new AssociationRule(set, consequentIn, confidenceLevel);
+		set.add(item2);
+		
+		
+		
+		ar.setSupportLevel(0.44);
+		ar.setConsequent(set);
+		
+		assertNotNull(ar);
+		assertNotNull(ar.supportLevel);
+		assertNotNull(ar.consequent);
+		assertNotNull(ar.antecedent);
+		assertNotNull(ar.getAntecedent());
+		assertNotNull(ar.getConfidenceLevel());
+		assertNotNull(ar.getConsequent());
+		assertNotNull(ar.getSupportLevel());
+	}
+	
+	
+	@Test
+	public void testItemSet(){
+		ItemSet set = new ItemSet(item);
+		
+		assertNotNull(set.items);
+		assertEquals(set.getCount(), 1);
+		assertNotNull(set.getCount());
+		
+		set.increment(5);
+		assertEquals(set.getCount(), 6);
+		
+		set.setCount(33);
+		assertEquals(set.getCount(), 33);
+		
+		assertFalse(set.contains(item2));
+		set.add(item2);
+		assertTrue(set.contains(item2));
+
+		
+		
+	}
+	
+	@Test
+	public void testItem(){
+		
+		assertEquals(item.getName(), "beer");
+		item.setName("glasses");
+		assertNotEquals(item.getName(), "beer");
+		assertEquals(item.getName(), "glasses");
+		
+		assertFalse(item.equals(item2));
+	}
+	
+	@Test
+	public void testDataAccessObject(){
+		fail("Not yet implemented");
+	}
+
+}
+

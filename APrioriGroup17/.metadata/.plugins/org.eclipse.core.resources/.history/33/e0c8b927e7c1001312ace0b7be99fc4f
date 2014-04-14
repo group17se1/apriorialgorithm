@@ -1,0 +1,19 @@
+package APrioriMiner;
+
+public class Runner {
+
+	public static void main(String[] args) {
+	
+		String transactionSet = "U:/NOVOALG/cs355_assignments/APrioriGroup17/AprioriAlgorithm/src/test.txt";
+		
+		// parameters for APrioriAlgorithm are: (support, confidence, filepath)
+		
+		Timer timer = new Timer();
+		timer.startTimer();
+		APrioriAlgorithm generator = new APrioriAlgorithm(0.4, 0.5, transactionSet);
+		timer.stopTimer();
+		System.out.println("Elapsed Time: " + timer.getTotal() + " msec");
+
+	}
+
+}

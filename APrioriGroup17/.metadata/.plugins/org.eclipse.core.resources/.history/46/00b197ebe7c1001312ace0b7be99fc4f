@@ -1,0 +1,46 @@
+package APrioriMiner;
+
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+public class Runner {
+
+	public static void main(String[] args) {
+	
+		String transactionSet = "src/test.txt";
+		
+		// parameters for APrioriAlgorithm are: (support, confidence, filepath)
+		
+		//make it look better
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		@SuppressWarnings("unused")
+		GUI gui = new GUI();
+		
+		double time;
+		Timer timer = new Timer();
+		timer.startTimer();
+		@SuppressWarnings("unused")
+		APrioriAlgorithm generator = new APrioriAlgorithm(0.5, 0.75, transactionSet);
+		timer.stopTimer();
+		time = timer.getTotal();
+		System.out.println("Elapsed Time: " + time + " msec");
+		gui.finished(time);
+
+	}
+
+}

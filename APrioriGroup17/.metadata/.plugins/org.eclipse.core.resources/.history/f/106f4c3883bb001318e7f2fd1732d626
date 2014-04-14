@@ -1,0 +1,25 @@
+package APrioriMiner;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class APrioriTests {
+
+	@Test
+	public void testAssociationRule() {
+		fail("Not yet implemented");
+		
+	}
+	
+	@Test
+	public void testTransaction() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testItemSet(){
+		
+	}
+
+}

@@ -1,0 +1,58 @@
+package APrioriMiner;
+
+//import javax.swing.UIManager;
+//import javax.swing.UnsupportedLookAndFeelException;
+
+public class Runner {
+
+	public static void main(String[] args) {
+	
+		String transactionSet = "src/testcase4";
+		
+		// parameters for APrioriAlgorithm are: (support, confidence, filepath)
+		
+		//make it look better
+		/*
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
+//		GUI gui = new GUI();
+		
+		double time;
+		Timer timer = new Timer();
+		timer.startTimer();
+		APrioriAlgorithm generator = new APrioriAlgorithm(0.4, 0.7, transactionSet);
+		timer.stopTimer();
+		time = timer.getTotal();
+		System.out.println("Elapsed Time: " + time + " msec");
+		
+		DataAccessObject dao = new DataAccessObject();
+//		DataAccessObject.readEntry(transactionSet);
+		dao.connect();
+//		dao.uploadAssociations("04/12/14", generator.associationRules);
+//		dao.uploadTransaction("PaulMart", "04/12/14", "04/15/14", generator.transactions);
+//		dao.getDate();
+//		dao.getSupportLevel();
+//		dao.getConfidenceLevel();
+
+//		dao.getSettings();
+		
+		
+//		gui.finished(time);
+
+	}
+
+}

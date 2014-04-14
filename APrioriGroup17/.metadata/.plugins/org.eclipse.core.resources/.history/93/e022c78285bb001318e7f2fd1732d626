@@ -1,0 +1,37 @@
+package APrioriMiner;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class APrioriTests {
+
+	@Test
+	public void testAssociationRule() {
+		Item item = new Item("beer");
+		Item item2 = new Item("dipper");
+		ItemSet set = new ItemSet(item);
+		ItemSet consequentIn = new ItemSet(item2);
+		double confidenceLevel = 0.6;
+		AssociationRule ar = new AssociationRule(set, consequentIn, confidenceLevel);
+		ar.setSupportLevel(0.5);
+		assertEquals(0.5, ar.setSupportLevel(0.5));
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testTransaction() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testItemSet(){
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void tesDataAccessObject(){
+		fail("Not yet implemented");
+	}
+
+}
