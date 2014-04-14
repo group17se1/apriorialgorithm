@@ -198,6 +198,12 @@ public class GUI extends JFrame implements ActionListener{
 				timer.stopTimer();
 				time = timer.getTotal();
 				//stop timer and print out the elapsed time
+				Parser parser = new Parser(transactionSet);
+				DataAccessObject dao = new DataAccessObject();
+				dao.uploadSettings(generator.minSupportLevel, generator.minConfidenceLevel);
+				dao.uploadTransaction("PaulMart", parser.getStartDate(), parser.getEndDate(), generator.transactions);
+				dao.uploadAssociations(parser.getStartDate(), generator.associationRules);
+				dao.getSettings();
 				System.out.println("Elapsed Time: " + time + " msec");
 				this.display(generator, time);
 			} else if(!minS) {
