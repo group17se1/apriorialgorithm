@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename package &apos;pkg&apos; to &apos;APrioriMiner&apos;&#x0D;&#x0A;- Original project: &apos;AprioriAlgorithm&apos;&#x0D;&#x0A;- Original element: &apos;AprioriAlgorithm/src/pkg&apos;&#x0D;&#x0A;- Renamed element: &apos;AprioriAlgorithm/src/APrioriMiner&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;pkg&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;pkg" name="APrioriMiner" qualified="false" references="true" stamp="1396563628070" textual="false" version="1.0"/>
-</session>
