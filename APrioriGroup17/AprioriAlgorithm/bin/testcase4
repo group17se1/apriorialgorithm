@@ -1,8 +1,8 @@
 PaulMart
 2014-03-05
 2014-03-06
-{beer, diaper, baby powder, bread}
-{beer, bread}
-{diaper, baby powder}
-{diaper, beer}
-{diaper, baby powder}
+{baby powder, beer}
+{diaper, baby powder, bread}
+{milk, bread, baby powder, beer}
+{umbrella, milk, beer, detergent, diaper}
+{beer, milk, bread}

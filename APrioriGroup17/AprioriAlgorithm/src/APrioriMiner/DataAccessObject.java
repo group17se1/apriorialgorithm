@@ -85,7 +85,7 @@ public class DataAccessObject {
 
 	} // end of connect
 
-	private void disconnect(Connection connection, Statement statement){
+	public void disconnect(Connection connection, Statement statement){
 
 		// closing connection
 		try {
