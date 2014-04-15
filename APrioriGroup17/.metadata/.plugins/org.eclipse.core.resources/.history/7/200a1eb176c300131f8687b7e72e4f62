@@ -1,0 +1,14 @@
+package APrioriMiner;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class ARTests {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

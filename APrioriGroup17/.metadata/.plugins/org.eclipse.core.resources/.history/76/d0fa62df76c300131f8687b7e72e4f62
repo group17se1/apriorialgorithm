@@ -1,0 +1,56 @@
+package APrioriMiner;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class ARTests {
+
+	@Test
+	public void testAssociationRuleConstructor() {
+//		testing constructor
+		Item item = new Item("beer");
+		Item item2 = new Item("dipper");
+		ItemSet set = new ItemSet(item);
+		ItemSet consequentIn = new ItemSet(item2);
+		AssociationRule ar = new AssociationRule(set, consequentIn, confidenceLevel);
+		assertNotNull(ar);
+	}
+	
+	@Test
+	public void testAssociationRuleDuplicateItems(){
+
+//		testing constructor for duplicate item
+		Item item = new Item("beer");
+		Item item2 = new Item("dipper");
+		ItemSet set = new ItemSet(item);
+		ItemSet consequentIn = new ItemSet(item2);
+		consequentIn.add(item);
+		AssociationRule ar = new AssociationRule(set, consequentIn, confidenceLevel);
+		assertFalse(ar.consequent.contains(item));
+		
+	}
+		
+	@Test
+	public void testAssociationRuleGettersAndSetters() {
+		
+//		testing getters and setters
+		Item item = new Item("beer");
+		Item item2 = new Item("dipper");
+		ItemSet set = new ItemSet(item);
+		ItemSet consequentIn = new ItemSet(item2);
+		AssociationRule ar = new AssociationRule(set, consequentIn, confidenceLevel);
+		
+		ar.setSupportLevel(0.44);
+		ar.setConsequent(set);
+		assertEquals("ItemSet antecedent should have all consequentIn items", ar.getAntecedent().items, consequentIn.items);
+		// Association Rule variable values should not be null
+		assertNotNull(ar.supportLevel);
+		assertNotNull(ar.consequent);
+		assertNotNull(ar.antecedent);
+		assertNotNull(ar.getAntecedent());
+		assertNotNull(ar.getConfidenceLevel());
+		assertNotNull(ar.getConsequent());
+		assertNotNull(ar.getSupportLevel());
+	}
+}

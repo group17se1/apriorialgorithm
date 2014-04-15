@@ -1,0 +1,21 @@
+package APrioriMiner;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class APTests {
+
+	@Test
+	public void testGenerateRules() {
+		double minSL = 0.4;
+		double confidenceLevel = 0.7;
+		String filepath = "src/testcase4";
+		APrioriAlgorithm generator = new APrioriAlgorithm(minSL, confidenceLevel, filepath);
+		
+		//items: beer,diaper,baby powder,bread,umbrella,milk,detergent,coca-cola
+		assertEquals(generator.itemSubsets.size(), 11);
+		assertEquals(generator.associationRules.size(), 4);
+	}
+
+}

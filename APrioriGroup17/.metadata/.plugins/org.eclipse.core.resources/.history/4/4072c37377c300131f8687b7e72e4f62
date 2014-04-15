@@ -1,0 +1,17 @@
+package APrioriMiner;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.junit.runners.Suite;
+
+@RunWith(Suite.class)
+@SuiteClasses({DAOTests.class, ARTests.class, ItemSetTests.class ItemTests.class})
+public class Tests {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

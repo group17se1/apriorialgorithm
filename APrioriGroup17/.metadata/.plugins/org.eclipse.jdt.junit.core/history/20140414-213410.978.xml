@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="APTests" project="AprioriAlgorithm" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="APrioriMiner.APTests" time="3.45">
+    <testcase name="testGenerateRulesTransactions" classname="APrioriMiner.APTests" time="3.44"/>
+    <testcase name="testGenerateItemSubsets" classname="APrioriMiner.APTests" time="0.005"/>
+    <testcase name="testGenerateRulesTESCASE5" classname="APrioriMiner.APTests" time="0.001"/>
+    <testcase name="testCountItemCandidate" classname="APrioriMiner.APTests" time="0.002"/>
+    <testcase name="testPurgeNonSupportted" classname="APrioriMiner.APTests" time="0.002"/>
+  </testsuite>
+</testrun>

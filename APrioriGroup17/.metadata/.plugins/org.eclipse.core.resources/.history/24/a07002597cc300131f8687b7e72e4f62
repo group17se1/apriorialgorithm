@@ -1,0 +1,20 @@
+package APrioriMiner;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class APTests {
+
+	@Test
+	public void testGenerateRules() {
+		double minSL = 0.4;
+		double confidenceLevel = 0.7;
+		String filepath = "src/testcase4";
+		APrioriAlgorithm generator = new APrioriAlgorithm(minSL, confidenceLevel, filepath);
+		
+		assertEquals(generator.itemSubsets.size(), 11);
+		assertEquals(generator.associationRules.size(), 4);
+	}
+
+}

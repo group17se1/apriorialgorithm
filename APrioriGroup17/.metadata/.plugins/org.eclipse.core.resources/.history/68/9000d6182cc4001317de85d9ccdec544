@@ -1,0 +1,137 @@
+package APrioriMiner;
+
+import static org.junit.Assert.*;
+
+import java.util.HashSet;
+
+import org.junit.Test;
+
+public class APTests {
+
+	@Test
+	public void testGenerateRulesTESCASE4() {
+		double minSL = 0.4;
+		double confidenceLevel = 0.7;
+		String filepath = "src/testcase4";
+		APrioriAlgorithm generator = new APrioriAlgorithm(minSL, confidenceLevel, filepath);
+		
+		assertEquals(generator.itemSubsets.size(), 11);
+		assertEquals(generator.associationRules.size(), 4);
+	}
+	
+	@Test
+	public void testGenerateRulesTESCASE5() {
+		double minSL = 0.4;
+		double confidenceLevel = 0.7;
+		String filepath = "src/testcase5";
+		APrioriAlgorithm generator = new APrioriAlgorithm(minSL, confidenceLevel, filepath);
+		
+		assertEquals(generator.itemSubsets.size(), 12);
+		assertEquals(generator.associationRules.size(), 2);
+	}
+	
+	@Test
+	public void testPurgeNonSupportted(){
+		HashSet<ItemSet> set = new HashSet<ItemSet>();
+		
+		Item item1 = new Item("beer");
+		Item item2 = new Item("steak");
+		Item item3 = new Item("wine");
+		Item item4 = new Item("soup");
+		Item item5 = new Item("rope");
+		ItemSet is = new ItemSet(item1);
+		is.add(item2);
+		is.add(item3);
+		is.add(item4);
+		is.add(item5);
+		set.add(is);
+		
+		double minSL = 0.4;
+		double confidenceLevel = 0.7;
+		String filepath = "src/testcase6";
+		APrioriAlgorithm generator = new APrioriAlgorithm(minSL, confidenceLevel, filepath);
+		generator.minSupportLevel = 6;
+		assertTrue(set.size() == 1);
+		generator.purgeNonSupported(set);
+		assertTrue(set.size() == 0);
+		
+	}
+	
+	@Test
+	public void testGenerateItemSubsets(){
+		double minSL = 0.4;
+		double confidenceLevel = 0.7;
+		String filepath = "src/testcase6";
+		System.out.println("TESTGENERATEITEMSUBSETS");
+		APrioriAlgorithm generator = new APrioriAlgorithm(minSL, confidenceLevel, filepath);
+		HashSet<ItemSet> uniqueItemSets = new HashSet<ItemSet>();
+		
+		
+		HashSet<ItemSet> set = new HashSet<ItemSet>();
+		
+			
+		Item item1 = new Item("beer");
+		Item item2 = new Item("steak");
+		Item item3 = new Item("wine");
+		Item item4 = new Item("soup");
+		Item item5 = new Item("rope");
+		
+		//is1 has beer,steak
+		ItemSet is1 = new ItemSet(item1);
+		is1.add(item2);
+		
+		
+		//is2 has steak, wine, soup
+		ItemSet is2 = new ItemSet(item2);
+		is2.add(item3);
+		is2.add(item4);
+		
+		//is3 has wine, rope, steak
+		ItemSet is3 = new ItemSet(item3);
+		is3.add(item5);
+		is3.add(item2);
+		
+		//is4 has soup, beer, wine
+		ItemSet is4 = new ItemSet(item4);
+		is4.add(item1);
+		is4.add(item3);
+		
+		//is5 has rope, soup, wine
+		ItemSet is5 = new ItemSet(item5);
+		is5.add(item4);
+		is5.add(item3);
+		
+		//set that has 0 sets
+		
+		generator.generateItemSubsets(set, uniqueItemSets);
+		assertTrue(uniqueItemSets.size() == 0);
+		
+		//set that has 1 set
+		set.add(is1);
+		generator.generateItemSubsets(set, uniqueItemSets);
+		assertTrue(uniqueItemSets.size() == 0);
+		
+		
+		HashSet<ItemSet> candidateItemSet = new HashSet<ItemSet>();
+		candidateItemSet = generator.joinLists(set);
+		System.out.println("JOIN LIST CHECK: " + candidateItemSet);
+		System.out.println("DONE GENERATING");
+		fail("not implemented yet");
+	}
+	
+	@Test
+	public void testCountItemCandidate(){
+		fail("not implemented yet");
+	}
+	
+	@Test
+	public void testJoinLists(){
+		fail("not implemented yet");
+	}
+	
+	@Test
+	public void testProccessData(){
+		fail("not implemented yet");
+	}
+
+}

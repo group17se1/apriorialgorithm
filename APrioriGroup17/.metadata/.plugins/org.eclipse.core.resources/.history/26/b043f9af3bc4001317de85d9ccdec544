@@ -1,0 +1,103 @@
+package APrioriMiner;
+
+import static org.junit.Assert.*;
+
+import java.util.HashSet;
+
+import org.junit.Test;
+
+public class APTests {
+
+	@Test
+	public void testGenerateRulesTESCASE4() {
+		double minSL = 0.4;
+		double confidenceLevel = 0.7;
+		String filepath = "src/testcase4";
+		APrioriAlgorithm generator = new APrioriAlgorithm(minSL, confidenceLevel, filepath);
+		
+		assertEquals(generator.itemSubsets.size(), 11);
+		assertEquals(generator.associationRules.size(), 4);
+	}
+	
+	@Test
+	public void testGenerateRulesTESCASE5() {
+		double minSL = 0.4;
+		double confidenceLevel = 0.7;
+		String filepath = "src/testcase5";
+		APrioriAlgorithm generator = new APrioriAlgorithm(minSL, confidenceLevel, filepath);
+		
+		assertEquals(generator.itemSubsets.size(), 12);
+		assertEquals(generator.associationRules.size(), 2);
+	}
+	
+	@Test
+	public void testPurgeNonSupportted(){
+		HashSet<ItemSet> set = new HashSet<ItemSet>();
+		
+		Item item1 = new Item("beer");
+		Item item2 = new Item("steak");
+		Item item3 = new Item("wine");
+		Item item4 = new Item("soup");
+		Item item5 = new Item("rope");
+		ItemSet is = new ItemSet(item1);
+		is.add(item2);
+		is.add(item3);
+		is.add(item4);
+		is.add(item5);
+		set.add(is);
+		
+		double minSL = 0.4;
+		double confidenceLevel = 0.7;
+		String filepath = "src/testcase6";
+		APrioriAlgorithm generator = new APrioriAlgorithm(minSL, confidenceLevel, filepath);
+		generator.minSupportLevel = 6;
+		assertTrue(set.size() == 1);
+		generator.purgeNonSupported(set);
+		assertTrue(set.size() == 0);
+		
+	}
+	
+	@Test
+	public void testGenerateItemSubsets(){
+		double minSL = 0.4;
+		double confidenceLevel = 0.7;
+		String filepath = "src/testcase7";
+		APrioriAlgorithm generator = new APrioriAlgorithm(minSL, confidenceLevel, filepath);
+		Parser p = new Parser(filepath);
+		System.out.println("P:" + p.getTransactionSet());
+		HashSet<ItemSet> uniqueItemSets = new HashSet<ItemSet>();
+		System.out.println(generator.minSupportLevel);
+		generator.minSupportLevel = 3;
+		generator.generateItemSubsets(p.getUniqueItems(), uniqueItemSets);
+		System.out.println("UIS:: "+uniqueItemSets);
+		
+	
+			
+
+		fail("not implemented yet");
+	}
+	
+	@Test
+	public void testCountItemCandidate(){
+		double minSL = 0.4;
+		double confidenceLevel = 0.7;
+		String filepath = "src/testcase7";
+		Parser p = new Parser(filepath);
+		APrioriAlgorithm generator = new APrioriAlgorithm(minSL, confidenceLevel, filepath);
+		HashSet<ItemSet> itemSet = p.getUniqueItems();
+		System.out.println(itemSet);
+		generator.countItemCandidates(itemSet);
+		System.out.println("ItemSet Count: "  + itemSet);
+	}
+	
+	@Test
+	public void testJoinLists(){
+		fail("not implemented yet");
+	}
+	
+	@Test
+	public void testProccessData(){
+		fail("not implemented yet");
+	}
+
+}

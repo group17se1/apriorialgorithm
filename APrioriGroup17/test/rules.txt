@@ -1,0 +1,5 @@
+Improper Formatting on:
+	{ Apples, Beer, Cheese }}
+No Large Item Sets Found.
+No Association Rules Found.
+Time: 9.0 msec
