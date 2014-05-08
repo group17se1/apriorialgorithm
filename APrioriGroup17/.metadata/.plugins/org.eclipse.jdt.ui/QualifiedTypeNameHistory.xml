@@ -9,4 +9,10 @@
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="APrioriMiner.ItemSet"/>
 <fullyQualifiedTypeName name="APrioriMiner.APrioriAlgorithm"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+<fullyQualifiedTypeName name="javax.swing.JTextArea"/>
+<fullyQualifiedTypeName name="java.awt.Insets"/>
+<fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
 </qualifiedTypeNameHistroy>
